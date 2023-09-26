@@ -1,5 +1,6 @@
 
 from ..database import DatabaseConnection
+
 class Usuario:
     def __init__(self, id_usuario = None, nombre_usuario = None, clave = None, email = None, nombre = None, apellido = None, imagen_perfil = None):
         self.id_usuario = id_usuario

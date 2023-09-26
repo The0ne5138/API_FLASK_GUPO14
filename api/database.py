@@ -14,7 +14,7 @@ class DatabaseConnection:
                 user='grupo14',
                 port="3306",
                 password='1234',
-                database='TIF_Grupo_14'
+                database='DB_TIF_Grupo_14'
             )
         return cls._connection
 

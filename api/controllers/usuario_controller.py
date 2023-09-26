@@ -47,7 +47,7 @@ class UsuarioController:
                         email = datos.get('email', ''),
                         nombre = datos.get('nombre', ''),
                         apellido = datos.get('apellido', ''),        
-                        imagen_perfil = datos.get('imagen_perfil', ''),
+                        imagen_perfil = datos.get('imagen_perfil', '')
                         )
         
         Usuario.update_usuario(usuario)
