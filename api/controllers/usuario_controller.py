@@ -1,6 +1,4 @@
 
-##  ESTO ES de actores, hay q modificarlo para USUARIOS
-
 from ..model.usuarios import Usuario
 from flask import request
 from flask import jsonify
@@ -20,7 +18,7 @@ class UsuarioController:
         )
 
         Usuario.create_usuario(usuario)
-        return {'message': 'usuario creado con exito'}, 200
+        return {'message': 'Usuario creado con exito'}, 200
     
     @classmethod
     def get_usuario(cls, id_usuario):
