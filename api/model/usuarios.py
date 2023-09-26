@@ -21,7 +21,7 @@ class Usuario:
         query = "SELECT nombre_usuario, clave, email, nombre, apellido, imagen_perfil FROM TIF_Grupo_14.usuarios WHERE id_usuario = %s;"
         params = (id_usuario,)
         result = DatabaseConnection.fetch_one(query, params)
-        print(type(result))
+        #print(type(result))
         if result is not None:
             return Usuario(
                             id_usuario = id_usuario,
@@ -34,7 +34,35 @@ class Usuario:
                             )
         else:
             return None
+
+    @classmethod
+    def update_usuario(self, usuario):
+        query = """
+                UPDATE usuarios
+                SET nombre_usuario = %s, clave = %s, email = %s, nombre = %s, apellido = %s, imagen_perfil = %s
+                WHERE id_usuario = %s
+                """
         
+        params = (usuario.nombre_usuario, usuario.clave, usuario.email, usuario.nombre, usuario.apellido, usuario.imagen_perfil, usuario.id_usuario)
+        DatabaseConnection.execute_query(query, params)
+        return None
+
+
+    @classmethod
+    def delete_usuario(self,id_usuario):  # Warning: Hay q modificar la BD p/q si se elimina a un usuario que tiene servidores (y seguramente canales, chats tambien) creados da ERROR
+        query = "DELETE FROM usuarios WHERE id_usuario = %s"
+        params = (id_usuario,)
+        DatabaseConnection.execute_query(query, params)
+        return {'message': 'Usuario borrado con exito'},204
+
+
+
+
+
+
+
+
+
 
 
 
@@ -52,3 +80,12 @@ class Usuario:
     #     )
     #     else:
     #         return None
+    #@classmethod
+    #def update_usuario(cls, id_usuario, nombre_usuario, clave, email, nombre, apellido, imagen_perfil):
+    #    query = """
+    #    UPDATE TIF_grupo_14.usuarios
+    #    SET nombre_usuario = %s, clave = %s, email = %s, nombre = %s, apellido = %s, imagen_perfil = %s
+    #    WHERE id_usuario = %s;
+    #    """
+    #    params = (nombre_usuario, clave, email, nombre, apellido, imagen_perfil, id_usuario)
+    #    DatabaseConnection.execute_query(query, params)

@@ -35,13 +35,40 @@ class UsuarioController:
                              "apellido" : usuario_instance.apellido,
                              "imagen_perfil" : usuario_instance.imagen_perfil
                             }
-            
             return jsonify(response_data), 200
-        
         else:
-    
             return {"msg": "No se encontró el usuario"}, 404
     
+    @classmethod
+    def update_usuario(cls, id_usuario):
+        datos = request.json
+        usuario = Usuario(
+                        id_usuario,
+                        nombre_usuario = datos.get('nombre_usuario', ''),
+                        clave = datos.get('clave', ''),
+                        email = datos.get('email', ''),
+                        nombre = datos.get('nombre', ''),
+                        apellido = datos.get('apellido', ''),        
+                        imagen_perfil = datos.get('imagen_perfil', ''),
+                        )
+        
+        Usuario.update_usuario(usuario)
+        return {'message': 'Usuario actualizado con exito'},200
+
+
+    @classmethod
+    def delete_usuario(cls, id_usuario):   # Warning: Hay q modificar la BD p/q si se elimina a un usuario que tiene servidores (y seguramente canales, chats tambien) creados da ERROR
+        Usuario.delete_usuario(id_usuario)
+        return {'message': 'Usuario borrado con exito'},204
+
+
+
+
+    
+
+
+
+
 
 
 
