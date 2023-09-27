@@ -31,7 +31,7 @@ class CanalController:
                             }
             return jsonify(response_data), 200
         else:
-            return {"msg": "No se encontró el canal"}, 404
+            return {"msg": "No se encontró el Canal"}, 404
     
     @classmethod
     def update_canal(cls, id_canal):

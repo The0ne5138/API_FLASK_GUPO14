@@ -52,14 +52,3 @@ class Canal:
         params = (id_canal,)
         DatabaseConnection.execute_query(query, params)
         return {'message': 'Canal borrado con exito'},204
-
-
-
-
-
-
-
-
-
-
-
