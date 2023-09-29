@@ -1,10 +1,37 @@
 
 from ..model.usuarios import Usuario
-from flask import request
+from flask import request, session
 from flask import jsonify
 
 
 class UsuarioController:
+    @classmethod
+    def login(cls):
+        data = request.json
+        user = Usuario(nombre_usuario = data.get('nombre_usuario'),clave = data.get('clave'))
+        
+        if Usuario.is_registered(user):
+            session['nombre_usuario'] = data.get('nombre_usuario')
+            return {"message": "Sesion iniciada"}, 200
+        else:
+            return {"message": "Usuario o contraseña incorrectos"}, 401
+    
+    @classmethod
+    def show_profile(cls):
+        username = session.get('nombre_usuario')
+        user = Usuario.get(Usuario(nombre_usuario = username))
+        
+        if user is None:
+            return {"message": "Usuario no encontrado"}, 404
+        else:
+            return user.serialize(), 200
+    
+    @classmethod
+    def logout(cls):
+        session.pop('nombre_usuario', None)
+        return {"message": "Sesion cerrada"}, 200
+    
+
     @classmethod
     def create_usuario(self):
         

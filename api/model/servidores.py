@@ -26,7 +26,7 @@ class Servidor:
                             )
         else:
             return None
-
+      
     @classmethod
     def update_servidor(self, servidor):
         query = """
@@ -34,7 +34,6 @@ class Servidor:
                 SET nombreServidor = %s, descripcion = %s
                 WHERE id_servidor = %s
                 """
-        
         params = (servidor.nombreServidor, servidor.descripcion, servidor.id_Servidor)
         DatabaseConnection.execute_query(query, params)
         return None
@@ -46,3 +45,24 @@ class Servidor:
         params = (id_servidor,)
         DatabaseConnection.execute_query(query, params)
         return {'message': 'Servidor borrado con exito'},204
+    
+    @classmethod
+    def get_servidoresPorUsuario(cls, id_usuario):
+        query = """SELECT servidores.*FROM DB_TIF_Grupo_14.servidores INNER JOIN DB_TIF_Grupo_14.usuario_Servidor
+                   ON servidores.id_Servidor = usuario_Servidor.id_server WHERE usuario_Servidor.id_user = 5;"""
+        params = (id_usuario,)
+        result = DatabaseConnection.fetch_all(query, params)
+        listaServidores =[]
+        if result is not None:
+            for server in result:
+                listaServidores.append(
+                Servidor(
+                actor_id = server[0],
+                first_name = server[1],
+                last_name = server[2],
+                last_update = server[3]
+                ))
+                
+            return listaServidores
+        else:
+            return None

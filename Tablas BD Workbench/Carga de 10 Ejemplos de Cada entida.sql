@@ -197,3 +197,77 @@ VALUES
   e interactuar con tus compañeros de cursado. Disfrutenlo respetando las normas de uso.', NOW(), 4, 9),
   ('Bienvenido a el canal de la materia Geometría Fundamentos de Energía Solar - Año2: Este es un espacio para Consultar 
   e interactuar con tus compañeros de cursado. Disfrutenlo respetando las normas de uso.', NOW(), 4, 10);
+
+
+-- Carga 17 registros de ejemplo en la tabla "usuario_Servidor"
+  -- Relaciona usuario1 al Servidor 1
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (1, 1);
+
+-- Relaciona usuario1 al Servidor 5
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (1, 5);
+
+-- Relaciona usuario1 al Servidor 7
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (1, 7);
+
+-- Relaciona usuario2 al Servidor 5
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (2, 5);
+
+
+-- Relaciona usuario2 al Servidor 6
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (2, 6);
+
+-- Relaciona usuario2 al Servidor 13
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (2, 13);
+
+-- Relaciona usuario2 al Servidor 14
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (2, 14);
+
+-- Relaciona usuario3 al Servidor 3
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (3, 3);
+
+-- Relaciona usuario3 al Servidor 4
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (3, 4);
+
+-- Relaciona usuario4 al Servidor 8
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (4, 8);
+
+-- Relaciona usuario4 al Servidor 9
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (4, 9);
+
+-- Relaciona usuario4 al Servidor 10
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (4, 10);
+
+-- Relaciona usuario4 al Servidor 11
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (4, 11);
+
+
+-- Relaciona usuario4 al Servidor 12
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (4, 12);
+
+-- Relaciona usuario5 al Servidor 1
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (5, 1);
+
+-- Relaciona usuario5 al Servidor 2
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (5, 2);
+
+-- Relaciona usuario5 al Servidor 3
+INSERT INTO DB_TIF_Grupo_14.usuario_Servidor (id_user, id_server)
+VALUES (5, 3);
+
+

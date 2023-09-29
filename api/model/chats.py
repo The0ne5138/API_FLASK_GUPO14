@@ -2,7 +2,7 @@
 from ..database import DatabaseConnection
 
 class Chat:
-    _keys = ('id_mensaje', 'contenido', 'fecha_creacion', 'id_user','id_canal')
+    _keys = ['id_mensaje', 'contenido', 'fecha_creacion', 'id_user','id_canal']
     def __init__(self, id_mensaje = None, contenido = None, fecha_creacion = None, id_user = None, id_canal= None):
         self.id_mensaje = id_mensaje
         self.contenido = contenido
@@ -64,4 +64,4 @@ class Chat:
         query = "SELECT contenido, fecha_creacion, id_user, id_canal FROM DB_TIF_Grupo_14.chats WHERE id_canal = %s;"
         params = (id_canal,)
         results = DatabaseConnection.fetch_all(query, params)
-        return results#[cls(**dict(zip(cls._keys, row))) for row in results]
+        return results[cls(**dict(zip(cls._keys, row))) for row in results]
